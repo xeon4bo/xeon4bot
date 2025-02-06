@@ -37,7 +37,7 @@ user_shares = {}
 async def welcome(client: Client, message: Message):
     invite_link = f"{GROUP_URL}"
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🔗 Share Group Link To 0/3", switch_inline_query=invite_link)],
+        [InlineKeyboardButton("🔗 Share Group Link To 0/4", switch_inline_query=invite_link)],
         [InlineKeyboardButton("✅ Check Share Status", callback_data="check_share")]
     ])
     sticker_id = "CAACAgEAAxkBAAENuT9no6sQKZqBFjjBYd1DAUW_PFv_4gACMQIAAoKgIEQHCzBVrLHGhzYE"
