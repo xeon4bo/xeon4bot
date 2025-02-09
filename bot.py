@@ -11,7 +11,7 @@ load_dotenv()
 API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-GROUP_URL = os.getenv("GROUP_URL")
+GROUP_URL = os.getenv("GROUP_URL").strip('/')  # Ensure no trailing slash
 PORT = int(os.getenv("PORT", 8080))
 
 # Initialize bot
@@ -48,9 +48,9 @@ async def welcome(client: Client, message: Message):
             print(f"Error deleting previous message: {e}")
     
     # Prepare new welcome message
-    invite_link = f"{GROUP_URL}"
+    share_url = f"https://t.me/share/url?url={GROUP_URL}"
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🔗 Share Group Link To 0/5", switch_inline_query=invite_link)],
+        [InlineKeyboardButton("🔗 Share Group Link To 0/5", url=share_url)],
         [InlineKeyboardButton("✅ Check Share Status", callback_data="check_share")]
     ])
     sticker_id = "CAACAgEAAxkBAAENuT9no6sQKZqBFjjBYd1DAUW_PFv_4gACMQIAAoKgIEQHCzBVrLHGhzYE"
@@ -77,4 +77,3 @@ async def mark_shared(client, message):
 
 # Run bot
 app.run()
-
