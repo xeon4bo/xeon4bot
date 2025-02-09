@@ -33,15 +33,32 @@ Thread(target=run_flask, daemon=True).start()
 # Dictionary to store user share status
 user_shares = {}
 
+# Dictionary to store last welcome message ID per group
+last_welcome_messages = {}
+
 @app.on_message(filters.new_chat_members)
 async def welcome(client: Client, message: Message):
+    chat_id = message.chat.id
+    
+    # Delete previous welcome message if it exists
+    if chat_id in last_welcome_messages:
+        try:
+            await client.delete_messages(chat_id, last_welcome_messages[chat_id])
+        except Exception as e:
+            print(f"Error deleting previous message: {e}")
+    
+    # Prepare new welcome message
     invite_link = f"{GROUP_URL}"
     buttons = InlineKeyboardMarkup([
         [InlineKeyboardButton("🔗 Share Group Link To 0/5", switch_inline_query=invite_link)],
         [InlineKeyboardButton("✅ Check Share Status", callback_data="check_share")]
     ])
     sticker_id = "CAACAgEAAxkBAAENuT9no6sQKZqBFjjBYd1DAUW_PFv_4gACMQIAAoKgIEQHCzBVrLHGhzYE"
-    await client.send_sticker(chat_id=message.chat.id, sticker=sticker_id, reply_markup=buttons)
+    
+    sent_message = await client.send_sticker(chat_id=chat_id, sticker=sticker_id, reply_markup=buttons)
+    
+    # Store new welcome message ID using .id
+    last_welcome_messages[chat_id] = sent_message.id
 
 @app.on_callback_query(filters.regex("^check_share"))
 async def check_share(client, callback_query):
@@ -60,3 +77,4 @@ async def mark_shared(client, message):
 
 # Run bot
 app.run()
+
