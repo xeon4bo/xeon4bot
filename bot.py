@@ -50,8 +50,8 @@ async def welcome(client: Client, message: Message):
     # Prepare new welcome message
     share_url = f"https://t.me/share/url?url={GROUP_URL}"
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🔗 Share Group Link To 0/5", url=share_url)],
-        [InlineKeyboardButton("✅ Check Share Status", callback_data="check_share")]
+        [InlineKeyboardButton("🔗 Share To 5 Friends To Unlock 0/5", url=share_url)],
+        [InlineKeyboardButton("✅ Join the group", callback_data="check_share")]
     ])
     sticker_id = "CAACAgEAAxkBAAENuT9no6sQKZqBFjjBYd1DAUW_PFv_4gACMQIAAoKgIEQHCzBVrLHGhzYE"
     
