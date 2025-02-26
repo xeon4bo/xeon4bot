@@ -18,6 +18,7 @@ Ensure you set up the following environment variables before running the bot:
 | `BOT_TOKEN` | The bot token from @BotFather |
 | `GROUP_URL` | The invite link to your group |
 | `PORT` | The port number for Flask (default: 8080) |
+| `GROUP_ID` | Add GROUP ID) |
 
 ## Installation
 1. Clone this repository:
@@ -36,6 +37,7 @@ Ensure you set up the following environment variables before running the bot:
    BOT_TOKEN=your_bot_token
    GROUP_URL=your_group_url
    PORT=5000
+   GROUP_ID=add_group_id
    ```
 4. Run the bot:
    ```sh
