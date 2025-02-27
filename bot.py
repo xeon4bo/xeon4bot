@@ -107,7 +107,7 @@ async def send_random_message():
             "Ranbir", "Reyansh", "Rishaan", "Ritvik", "Rudra", "Samar", "Samarth", "Shaan", "Shaurya",
             "Shivansh", "Shrey", "Siddharth", "Sparsh", "Tanish", "Tejas", "Ved", "Vihaan", "Vivaan", "Yash"
         ]
-        message = f"{random.choice(L)} unlocked premium features"
+        message = f"{random.choice(L)} has unlocked premium group 🔓"
          # Delete the last random message if it exists
         if last_random_message_id is not None:
             try:
