@@ -123,7 +123,7 @@ async def send_random_message():
         # Store the new message ID
         last_random_message_id = sent_message.id
         
-        await asyncio.sleep(random.randint(10, 60))
+        await asyncio.sleep(random.randint(10, 120))
 
 @app.on_message(filters.text)
 async def sjsa(c, m):
