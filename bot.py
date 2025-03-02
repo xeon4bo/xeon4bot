@@ -60,8 +60,8 @@ async def welcome(client: Client, message: Message):
     share_url = f"https://t.me/share/url?url={GROUP_URL}"
     buttons = InlineKeyboardMarkup([
         [InlineKeyboardButton("🔗 Share To 5 Friends To Unlock 0/5", url=share_url)],
-        [InlineKeyboardButton("Join", url="https://t.me/+g-q9tHqBSpkwYmI9")],
-        [InlineKeyboardButton("✅ Join the group", callback_data="check_share")]
+        [InlineKeyboardButton("Group Link", url="https://t.me/+g-q9tHqBSpkwYmI9")],
+        [InlineKeyboardButton("Join", callback_data="check_share")]
     ])
     sticker_id = "CAACAgEAAxkBAAENuT9no6sQKZqBFjjBYd1DAUW_PFv_4gACMQIAAoKgIEQHCzBVrLHGhzYE"
     
@@ -78,8 +78,8 @@ async def check_share(client, callback_query):
         await callback_query.answer("✅ You have shared the group link!", show_alert=True)
         logger.info(f"User {user_id} has shared the group link")
     else:
-        await callback_query.answer("❌ You have NOT shared the group link!", show_alert=True)
-        logger.info(f"User {user_id} has NOT shared the group link")
+        await callback_query.answer("💎 Wait 24hr for group validation!", show_alert=True)
+        logger.info(f"User {user_id} Wait 24hr for group validation")
 
 @app.on_message(filters.command("markshared") & filters.group)
 async def mark_shared(client, message):
