@@ -78,8 +78,12 @@ async def check_share(client, callback_query):
         await callback_query.answer("✅ You have shared the group link!", show_alert=True)
         logger.info(f"User {user_id} has shared the group link")
     else:
-        await callback_query.answer("💎 Wait 24hr for group validation!", show_alert=True)
-        logger.info(f"User {user_id} Wait 24hr for group validation")
+        await callback_query.answer("💎 Note: ⏱️ᴡᴀɪᴛ 𝟤𝟦ʜʀ ғᴏʀ ɢʀᴏᴜᴘ ᴠᴀʟɪᴅᴀᴛɪᴏɴ ! 
+
+ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜʀ ᴀʀᴇ sʜᴀʀɪɴɢ ɢʀᴏᴜᴘ ʟɪɴᴋ ᴛᴏ ᴛʜᴇ ɢʀᴏᴜᴘ ᴄᴏʀʀᴇᴄᴛʟʏ ᴍɪɴɪᴍᴜᴍ ᴍᴇᴍʙᴇʀ 𝟣𝟢𝟢!! ", show_alert=True)
+        logger.info(f"User {user_id} Note: ⏱️ᴡᴀɪᴛ 𝟤𝟦ʜʀ ғᴏʀ ɢʀᴏᴜᴘ ᴠᴀʟɪᴅᴀᴛɪᴏɴ ! 
+
+ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜʀ ᴀʀᴇ sʜᴀʀɪɴɢ ɢʀᴏᴜᴘ ʟɪɴᴋ ᴛᴏ ᴛʜᴇ ɢʀᴏᴜᴘ ᴄᴏʀʀᴇᴄᴛʟʏ ᴍɪɴɪᴍᴜᴍ ᴍᴇᴍʙᴇʀ 𝟣𝟢𝟢!! ")
 
 @app.on_message(filters.command("markshared") & filters.group)
 async def mark_shared(client, message):
