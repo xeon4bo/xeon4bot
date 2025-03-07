@@ -63,7 +63,7 @@ async def welcome(client: Client, message: Message):
         [InlineKeyboardButton("Group Link", url="https://t.me/+g-q9tHqBSpkwYmI9")],
         [InlineKeyboardButton("Join", callback_data="check_share")]
     ])
-    sticker_id = "CAACAgEAAxkBAAENuT9no6sQKZqBFjjBYd1DAUW_PFv_4gACMQIAAoKgIEQHCzBVrLHGhzYE"
+    sticker_id = "CAACAgEAAxkBAAEN3cBnt73THL5ZqX0YdBzqNMFPdyiOXQACMQIAAoKgIEQHCzBVrLHGhzYE"
     
     sent_message = await client.send_sticker(chat_id=chat_id, sticker=sticker_id, reply_markup=buttons)
     logger.info(f"Sent welcome message in chat {chat_id}")
